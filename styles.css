@@ -1,0 +1,459 @@
+:root {
+  --bg: #0b0b10;
+  --bg-soft: #12121a;
+  --card: rgba(255, 255, 255, 0.06);
+  --line: rgba(255, 255, 255, 0.12);
+  --text: #f5f0ea;
+  --muted: #b8b1a8;
+  --gold: #d4b06d;
+  --gold-dark: #a98544;
+  --white: #ffffff;
+  --shadow: 0 18px 60px rgba(0, 0, 0, 0.28);
+  --radius: 24px;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  font-family: "Manrope", Arial, sans-serif;
+  color: var(--text);
+  background:
+    radial-gradient(circle at top, rgba(212, 176, 109, 0.12), transparent 30%),
+    linear-gradient(180deg, #09090d 0%, #101017 100%);
+}
+
+img { max-width: 100%; display: block; }
+a { color: inherit; text-decoration: none; }
+
+.container { width: min(1240px, calc(100% - 40px)); margin: 0 auto; }
+
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  backdrop-filter: blur(16px);
+  background: rgba(8, 8, 12, 0.82);
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+
+.header__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  min-height: 88px;
+}
+
+.logo img { width: 160px; height: auto; }
+
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 26px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.nav a {
+  color: var(--muted);
+  transition: color .25s ease;
+  font-weight: 600;
+  letter-spacing: .01em;
+}
+
+.nav a:hover { color: var(--white); }
+
+.header__button, .btn {
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 999px;
+  transition: transform .25s ease, background .25s ease, border-color .25s ease;
+}
+
+.header__button {
+  padding: 16px 24px;
+  color: var(--white);
+  font-weight: 700;
+}
+
+.header__button:hover, .btn:hover { transform: translateY(-1px); }
+
+.hero {
+  position: relative;
+  min-height: 92vh;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+.hero__bg, .hero__overlay { position: absolute; inset: 0; }
+
+.hero__bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hero__overlay {
+  background:
+    linear-gradient(90deg, rgba(8, 8, 12, 0.86) 0%, rgba(8, 8, 12, 0.58) 42%, rgba(8, 8, 12, 0.42) 100%),
+    linear-gradient(180deg, rgba(8, 8, 12, 0.18) 0%, rgba(8, 8, 12, 0.64) 100%);
+}
+
+.hero__content {
+  position: relative;
+  z-index: 1;
+  padding: 80px 0;
+  max-width: 760px;
+}
+
+.hero__label, .section-heading span, .result-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 14px;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.08);
+  color: var(--gold);
+  font-size: 14px;
+  letter-spacing: .10em;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+h1, h2, h3, .stat-card strong, .result-main, .point-card strong {
+  font-family: "Cormorant Garamond", Georgia, serif;
+  letter-spacing: .01em;
+}
+
+.hero h1 {
+  font-size: clamp(62px, 8vw, 108px);
+  line-height: .94;
+  margin: 22px 0 18px;
+  font-weight: 600;
+}
+
+.hero p {
+  font-size: clamp(18px, 2vw, 22px);
+  line-height: 1.7;
+  color: #ede7de;
+  max-width: 650px;
+  font-weight: 500;
+}
+
+.hero__stats {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+  margin: 34px 0;
+}
+
+.stat-card, .card, .adv-card, .plan-card, .point-card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow);
+  border-radius: var(--radius);
+}
+
+.stat-card { padding: 22px; }
+
+.stat-card strong {
+  display: block;
+  font-size: 34px;
+  margin-bottom: 8px;
+}
+
+.stat-card span {
+  color: var(--muted);
+  line-height: 1.5;
+  font-weight: 500;
+}
+
+.hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 17px 28px;
+  font-weight: 800;
+}
+
+.btn--gold {
+  background: linear-gradient(180deg, #dfbf83 0%, #b18b4d 100%);
+  color: #17130f;
+  border-color: rgba(0,0,0,0.06);
+}
+
+.btn--dark {
+  color: var(--white);
+  background: rgba(255,255,255,0.06);
+}
+
+.btn--full { width: 100%; margin-top: 18px; }
+
+.section { padding: 96px 0; }
+.section--dark { background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01)); }
+
+.section-heading { max-width: 780px; margin-bottom: 38px; }
+
+.section-heading h2 {
+  margin: 18px 0 0;
+  font-size: clamp(42px, 5vw, 68px);
+  line-height: 1.02;
+  font-weight: 600;
+}
+
+.about__grid, .mortgage-grid, .location-grid, .contacts-grid {
+  display: grid;
+  grid-template-columns: 1.05fr .95fr;
+  gap: 28px;
+}
+
+.about__text, .about__image, .calculator, .mortgage-result, .map-card, .location-address, .contacts-text, .contact-form {
+  padding: 28px;
+}
+
+.about__text p {
+  margin: 0 0 16px;
+  line-height: 1.8;
+  color: var(--muted);
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.about__image img {
+  border-radius: 18px;
+  width: 100%;
+  min-height: 100%;
+  object-fit: cover;
+}
+
+.advantages {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 22px;
+}
+
+.adv-card { padding: 26px; }
+
+.adv-card h3, .plan-card h3, .location-address h3, .contacts-text h3 {
+  margin-top: 0;
+  margin-bottom: 12px;
+  font-size: 34px;
+  font-weight: 600;
+}
+
+.adv-card p, .plan-card__text, .location-address p, .contact-list, .result-note, .point-card span, .contact-form label, .form-row label {
+  color: var(--muted);
+  line-height: 1.7;
+  font-weight: 500;
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr 1fr;
+  grid-template-rows: 420px;
+  gap: 18px;
+}
+
+.gallery__item, .gallery__item--large {
+  overflow: hidden;
+  border-radius: 28px;
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow);
+}
+
+.gallery img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.plans {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+}
+
+.plan-card { overflow: hidden; }
+
+.plan-card__image {
+  background: #fff;
+  padding: 16px;
+  border-bottom: 1px solid rgba(0,0,0,0.06);
+}
+
+.plan-card__image img {
+  width: 100%;
+  height: 420px;
+  object-fit: contain;
+}
+
+.plan-card__body { padding: 24px; }
+
+.plan-card__meta {
+  margin: 8px 0;
+  color: var(--muted);
+  font-weight: 600;
+}
+
+.plan-card__meta strong { color: var(--white); }
+
+.calc-field { margin-bottom: 24px; }
+
+.calc-field label {
+  display: block;
+  margin-bottom: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .04em;
+}
+
+.calc-field input[type="range"] {
+  width: 100%;
+  accent-color: var(--gold-dark);
+}
+
+.calc-value {
+  margin-top: 12px;
+  font-size: 24px;
+  font-weight: 800;
+  color: var(--white);
+}
+
+.program-list {
+  display: grid;
+  gap: 12px;
+}
+
+.program-option {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 0;
+  cursor: pointer;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.program-option input[type="radio"] {
+  width: 22px;
+  height: 22px;
+  accent-color: var(--gold-dark);
+}
+
+.form-row input, .form-row textarea {
+  width: 100%;
+  border: 1px solid var(--line);
+  background: rgba(255,255,255,0.04);
+  color: var(--white);
+  border-radius: 16px;
+  padding: 16px 18px;
+  font-size: 16px;
+  outline: none;
+  font-family: "Manrope", Arial, sans-serif;
+}
+
+.result-main {
+  font-size: clamp(40px, 4vw, 58px);
+  margin: 18px 0 22px;
+  font-weight: 700;
+}
+
+.result-list {
+  display: grid;
+  gap: 14px;
+  margin-bottom: 20px;
+}
+
+.result-list div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid var(--line);
+}
+
+.result-list span { color: var(--muted); }
+
+.map-card iframe {
+  width: 100%;
+  height: 520px;
+  border: 0;
+  border-radius: 18px;
+}
+
+.location-info { display: grid; gap: 20px; }
+.location-points { display: grid; gap: 16px; }
+
+.point-card { padding: 22px; }
+
+.point-card strong {
+  display: block;
+  font-size: 40px;
+  margin-bottom: 8px;
+  font-weight: 700;
+}
+
+.contact-list { padding-left: 18px; margin: 18px 0 0; }
+.form-row { margin-bottom: 18px; }
+
+.checkbox {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  margin: 14px 0 22px;
+}
+
+.checkbox input { margin-top: 4px; }
+.checkbox a, .footer__links a:hover { color: var(--gold); }
+
+.footer {
+  border-top: 1px solid rgba(255,255,255,0.06);
+  padding: 28px 0;
+  background: rgba(8, 8, 12, 0.8);
+}
+
+.footer__inner, .footer__links {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.footer p { margin: 6px 0 0; color: var(--muted); }
+.footer__links { gap: 18px; }
+.footer__links a { color: var(--muted); font-weight: 600; }
+
+@media (max-width: 1100px) {
+  .nav { display: none; }
+  .hero__stats, .advantages, .plans, .gallery, .about__grid, .mortgage-grid, .location-grid, .contacts-grid {
+    grid-template-columns: 1fr;
+  }
+  .gallery { grid-template-rows: 280px 280px 280px; }
+  .plan-card__image img { height: 360px; }
+}
+
+@media (max-width: 720px) {
+  .container { width: min(100% - 24px, 1240px); }
+  .header__inner { min-height: 76px; }
+  .logo img { width: 128px; }
+  .header__button { padding: 13px 16px; font-size: 14px; }
+  .hero { min-height: 78vh; }
+  .hero__content { padding: 56px 0; }
+  .hero__stats { grid-template-columns: 1fr; }
+  .section { padding: 72px 0; }
+  .about__text, .about__image, .calculator, .mortgage-result, .map-card, .location-address, .contacts-text, .contact-form {
+    padding: 20px;
+  }
+  .map-card iframe { height: 360px; }
+}
