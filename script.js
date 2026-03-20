@@ -84,3 +84,30 @@ programInputs.forEach(input => {
 });
 
 calculateMortgage();
+document.addEventListener("DOMContentLoaded", function () {
+  const submitBtn = document.getElementById("submitFormBtn");
+  const successMessage = document.getElementById("successMessage");
+
+  const nameInput = document.getElementById("name");
+  const phoneInput = document.getElementById("phone");
+  const commentInput = document.getElementById("comment");
+
+  if (submitBtn) {
+    submitBtn.addEventListener("click", function () {
+      const name = nameInput ? nameInput.value.trim() : "";
+      const phone = phoneInput ? phoneInput.value.trim() : "";
+      const comment = commentInput ? commentInput.value.trim() : "";
+
+      if (!name || !phone) {
+        alert("Пожалуйста, заполните имя и телефон.");
+        return;
+      }
+
+      successMessage.style.display = "block";
+
+      if (nameInput) nameInput.value = "";
+      if (phoneInput) phoneInput.value = "";
+      if (commentInput) commentInput.value = "";
+    });
+  }
+});
